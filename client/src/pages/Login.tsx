@@ -2,7 +2,6 @@ import { useState } from "react";
 import { heroSectionData } from "../assets/assets";
 import { Link } from "react-router-dom";
 import {
-  BikeIcon,
   EyeIcon,
   EyeOffIcon,
   Loader2Icon,
@@ -13,6 +12,7 @@ import {
 
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import DastagirLogo from "../components/DastagirLogo";
 
 const Login = () => {
   const [isLoginState, setIsLoginState] = useState(true);
@@ -65,7 +65,7 @@ const Login = () => {
           {/* form header message */}
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center gap-2 mb-6">
-              <BikeIcon className="size-8 text-app-green" />
+              <DastagirLogo className="size-9 text-app-green" />
               <span className="text-2xl font-semibold text-app-green">
                 Satinder Dastagir
               </span>

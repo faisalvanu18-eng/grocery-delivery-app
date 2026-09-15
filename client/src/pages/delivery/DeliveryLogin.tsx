@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { BikeIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import { heroSectionData } from "../../assets/assets";
 import api from "../../config/api";
 import toast from "react-hot-toast";
+import DastagirLogo from "../../components/DastagirLogo";
 
 export default function DeliveryLogin() {
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ export default function DeliveryLogin() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <div className="flex-center gap-2 mb-4">
-              <BikeIcon className="size-7 text-app-green" />
+              <DastagirLogo className="size-8 text-app-green" />
               <span className="text-2xl font-semibold text-app-green">
                 Dastagir
               </span>

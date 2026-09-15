@@ -1,4 +1,4 @@
-import { BikeIcon } from "lucide-react";
+import DastagirLogo from "./DastagirLogo";
 import { Link } from "react-router-dom";
 
 import { footerData } from "../assets/assets";
@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <BikeIcon className="size-6 text-white" />
+              <DastagirLogo className="size-7 text-white" />
               <span className="text-xl font-semibold">
                 {footerData.brand.name}
               </span>
