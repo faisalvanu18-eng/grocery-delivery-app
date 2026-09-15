@@ -16,7 +16,7 @@ const FlashDeals = () => {
       .get("/products/flash-deals")
       .then((res) => setProducts(res.data.products))
       .catch((error: any) =>
-        toast.error(error.response.data.message || error?.message),
+        toast.error(error?.response?.data?.message || error?.message),
       )
       .finally(() => setLoading(false));
   }, []);
