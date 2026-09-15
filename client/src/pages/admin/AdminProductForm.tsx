@@ -3,7 +3,6 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { ArrowLeftIcon } from "lucide-react";
 
 import { categoriesData } from "../../assets/assets";
-import type { AdminCategory } from "../../types";
 import Loading from "../../components/Loading";
 import api from "../../config/api";
 import toast from "react-hot-toast";
@@ -16,9 +15,6 @@ export default function AdminProductForm() {
   const [loading, setLoading] = useState(isEdit);
   const [saving, setSaving] = useState(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [categories, setCategories] = useState<
-    { slug: string; name: string }[]
-  >(categoriesData.map((c) => ({ slug: c.slug, name: c.name })));
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,21 +31,6 @@ export default function AdminProductForm() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Load categories from the API; fall back to static list on failure
-        try {
-          const { data: catData } = await api.get("/categories");
-          if (Array.isArray(catData.categories) && catData.categories.length) {
-            setCategories(
-              catData.categories.map((c: AdminCategory) => ({
-                slug: c.slug,
-                name: c.name,
-              })),
-            );
-          }
-        } catch {
-          // keep static fallback
-        }
-
         if (isEdit) {
           const { data: prodData } = await api.get(`/products/${id}`);
           const p = prodData.product;
@@ -164,22 +145,12 @@ export default function AdminProductForm() {
                   className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 focus:border-app-green focus:ring-1 focus:ring-app-green outline-none transition-all bg-white"
                 >
                   <option value="">Select a category</option>
-                  {categories.map((c) => (
+                  {categoriesData.map((c) => (
                     <option key={c.slug} value={c.slug}>
                       {c.name}
                     </option>
                   ))}
                 </select>
-                <p className="text-xs text-zinc-400 mt-1.5">
-                  Manage categories in the{" "}
-                  <Link
-                    to="/admin/categories"
-                    className="text-app-orange font-medium hover:underline"
-                  >
-                    Categories
-                  </Link>{" "}
-                  menu.
-                </p>
               </div>
               <div>
                 <label className="block text-sm font-medium text-zinc-700 mb-2">
