@@ -10,7 +10,7 @@ import api from "../config/api";
 import type { Order } from "../types";
 
 const MyOrders = () => {
-  const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "$";
+  const currency = "₹";
 
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);

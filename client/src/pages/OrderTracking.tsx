@@ -10,7 +10,7 @@ import OrderTimeLine from "../components/OrderTracking/OrderTimeLine";
 import api from "../config/api";
 
 const OrderTracking = () => {
-  const currency = import.meta.env.VITE_CURRENCY_SYMBOL || "₹";
+  const currency = "₹";
   const { id } = useParams();
   const navigate = useNavigate();
   const [order, setOrder] = useState<Order | null>(null);

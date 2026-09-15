@@ -63,7 +63,7 @@ Both Render and Vercel deploy from a Git repo. Push this project to GitHub.
    | Variable | Value |
    | --- | --- |
    | `VITE_BASE_URL` | `https://grocery-backend.onrender.com/api` |
-   | `VITE_CURRENCY_SYMBOL` | `$` |
+   | `VITE_CURRENCY_SYMBOL` | `₹` |
 
 4. Deploy. Note the URL, e.g. `https://your-app.vercel.app`.
 5. Go back to Render, set `FRONTEND_URL` to that Vercel URL, and redeploy the

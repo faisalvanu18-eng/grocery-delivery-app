@@ -624,7 +624,7 @@ Protected APIs Accessed
 # Frontend `.env`
 
 ```env
-VITE_CURRENCY_SYMBOL="$"
+VITE_CURRENCY_SYMBOL="₹"
 VITE_BASE_URL="http://localhost:5000/api"
 ```
 
