@@ -105,21 +105,6 @@ const seedDB = async () => {
         reviewCount: 12,
       },
       {
-        name: "Carrot 500g",
-        description:
-          "Sweet and crunchy, Good for eyesight, Ideal for juices and salads",
-        price: 44,
-        originalPrice: 50,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/ceqgisupuizyste9aifg.png",
-        category: "fruits-vegetables",
-        unit: "500g",
-        stock: 100,
-        isOrganic: true,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
         name: "Coca-Cola 1.5L",
         description: "Perfect for parties and gatherings, Best served chilled",
         price: 75,
@@ -163,21 +148,6 @@ const seedDB = async () => {
         reviewCount: 12,
       },
       {
-        name: "Banana 1 kg",
-        description:
-          "Sweet and ripe, High in potassium, Great for smoothies and snacking",
-        price: 45,
-        originalPrice: 50,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/dsnmko6gqtyw31okby80.png",
-        category: "fruits-vegetables",
-        unit: "1kg",
-        stock: 100,
-        isOrganic: false,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
         name: "Basmati Rice 5kg",
         description: "Long grain and aromatic, Perfect for biryani",
         price: 520,
@@ -186,20 +156,6 @@ const seedDB = async () => {
           "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/evuovl2nlwdjukosfz23.png",
         category: "pantry-staples",
         unit: "5kg",
-        stock: 100,
-        isOrganic: false,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
-        name: "Onion 500g",
-        description: "Fresh and pungent, Perfect for cooking, A kitchen staple",
-        price: 45,
-        originalPrice: 50,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/wnvtwlm2tphqburhsmyc.png",
-        category: "fruits-vegetables",
-        unit: "500g",
         stock: 100,
         isOrganic: false,
         rating: 4.5,
@@ -220,36 +176,6 @@ const seedDB = async () => {
         reviewCount: 12,
       },
       {
-        name: "Spinach 500g",
-        description:
-          "Rich in iron, High in vitamins, Perfect for soups and salads",
-        price: 15,
-        originalPrice: 18,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/bhrtl76sscvmeiq4kchm.png",
-        category: "fruits-vegetables",
-        unit: "500g",
-        stock: 100,
-        isOrganic: true,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
-        name: "Orange 1 kg",
-        description:
-          "Juicy and sweet, Rich in Vitamin C, Perfect for juices and salads",
-        price: 75,
-        originalPrice: 80,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/r1wxfortw5h12g7egx7k.png",
-        category: "fruits-vegetables",
-        unit: "1kg",
-        stock: 100,
-        isOrganic: false,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
         name: "Wheat Flour 5kg",
         description: "Soft and fluffy rotis, Rich in nutrients",
         price: 230,
@@ -258,21 +184,6 @@ const seedDB = async () => {
           "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/ooitbkcjcky0gkjmkatb.png",
         category: "pantry-staples",
         unit: "5kg",
-        stock: 100,
-        isOrganic: false,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
-        name: "Grapes 500g",
-        description:
-          "Fresh and juicy, Rich in antioxidants, Perfect for snacking and fruit salads",
-        price: 65,
-        originalPrice: 70,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/jsmb7caaokhnyci2coga.png",
-        category: "fruits-vegetables",
-        unit: "500g",
         stock: 100,
         isOrganic: false,
         rating: 4.5,
@@ -308,51 +219,6 @@ const seedDB = async () => {
         reviewCount: 12,
       },
       {
-        name: "Mango 1 kg",
-        description:
-          "Sweet and flavorful, Perfect for smoothies and desserts, Rich in Vitamin A",
-        price: 140,
-        originalPrice: 150,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/nb1mpxuo4fdcik6ey5yj.png",
-        category: "fruits-vegetables",
-        unit: "1kg",
-        stock: 100,
-        isOrganic: false,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
-        name: "Tomato 1 kg",
-        description:
-          "Juicy and ripe, Rich in Vitamin C, Perfect for salads and sauces, Farm fresh quality",
-        price: 28,
-        originalPrice: 30,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/kdbfytxisrjymgy0ubhk.png",
-        category: "fruits-vegetables",
-        unit: "1kg",
-        stock: 100,
-        isOrganic: true,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
-        name: "Potato 500g",
-        description:
-          "Fresh and organic, Rich in carbohydrates, Ideal for curries and fries",
-        price: 35,
-        originalPrice: 40,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/tzibj2ntsnbn4e0u5kwv.png",
-        category: "fruits-vegetables",
-        unit: "500g",
-        stock: 100,
-        isOrganic: true,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
         name: "Cheese 200g",
         description:
           "Creamy and delicious, Perfect for pizzas and sandwiches, Rich in calcium",
@@ -376,20 +242,6 @@ const seedDB = async () => {
           "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/ooamzy497lhsj2gjuwby.png",
         category: "dairy-eggs",
         unit: "1L",
-        stock: 100,
-        isOrganic: false,
-        rating: 4.5,
-        reviewCount: 12,
-      },
-      {
-        name: "Apple 1 kg",
-        description: "Boosts immunity, Rich in fiber",
-        price: 90,
-        originalPrice: 100,
-        image:
-          "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/pjt1y6xdo46tluemhf0o.png",
-        category: "fruits-vegetables",
-        unit: "1kg",
         stock: 100,
         isOrganic: false,
         rating: 4.5,

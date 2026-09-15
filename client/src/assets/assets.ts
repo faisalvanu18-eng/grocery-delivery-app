@@ -1,6 +1,6 @@
 import {
   TruckIcon,
-  LeafIcon,
+  PackageCheckIcon,
   ClockIcon,
   ShieldCheckIcon,
   MapPinIcon,
@@ -10,7 +10,6 @@ import {
 import { SiFacebook, SiX, SiInstagram } from "@icons-pack/react-simple-icons";
 import hero_bg from "./hero_bg.jpeg";
 import delivery_truck from "./delivery_truck.svg";
-import fruits_vegetables from "./fruits_vegetables.png";
 import dairy_eggs from "./dairy_eggs.png";
 import bakery from "./bakery.png";
 import drinks from "./drinks.png";
@@ -19,7 +18,6 @@ import snacks from "./snacks.png";
 import frozen_foods from "./frozen_foods.png";
 import personal_care from "./personal_care.png";
 import baby_care from "./baby_care.png";
-import meat_seafood from "./meat_seafood.png";
 
 export const assets = {
   delivery_truck,
@@ -27,16 +25,10 @@ export const assets = {
 };
 
 export const categoriesData = [
-  {
-    slug: "fruits-vegetables",
-    name: "Fruits & Vegetables",
-    image: fruits_vegetables,
-  },
   { slug: "personal-care", name: "Personal Care", image: personal_care },
   { slug: "pantry-staples", name: "Pantry Staples", image: pantry_staples },
   { slug: "bakery", name: "Bakery", image: bakery },
   { slug: "beverages", name: "Beverages", image: drinks },
-  { slug: "meat-seafood", name: "Meat & Seafood", image: meat_seafood },
   { slug: "snacks", name: "Snacks", image: snacks },
   { slug: "frozen-foods", name: "Frozen Foods", image: frozen_foods },
   { slug: "baby-care", name: "Baby Care", image: baby_care },
@@ -45,12 +37,12 @@ export const categoriesData = [
 
 export const heroSectionData = {
   description:
-    "Fresh, organic groceries delivered from local farms to your doorstep. Quality you can taste, convenience you deserve.",
+    "Everything your home needs, from pantry staples and dairy to snacks, beverages and personal care — delivered simply.",
   hero_image: hero_bg,
   hero_features: [
     { icon: TruckIcon, title: "Free Delivery", desc: "Orders over ₹20" },
-    { icon: LeafIcon, title: "100% Organic", desc: "Certified products" },
-    { icon: ClockIcon, title: "Same Day", desc: "Express delivery" },
+    { icon: PackageCheckIcon, title: "Daily Essentials", desc: "All in one place" },
+    { icon: ClockIcon, title: "Quick Service", desc: "Save time every day" },
     { icon: ShieldCheckIcon, title: "Secure Pay", desc: "Safe checkout" },
   ],
 };
@@ -59,16 +51,16 @@ export const deliveryPartnerLoginImage =
   "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=200";
 
 export const appPromoBannerData = {
-  title: "Get fresh groceries in minutes",
+  title: "Your daily essentials, in minutes",
   description:
-    "Download the Dastagir app for exclusive deals, real-time tracking, and the freshest selection delivered right to your door.",
+    "Shop pantry staples, snacks, beverages and household essentials with exclusive deals and real-time order tracking.",
 };
 
 export const footerData = {
   brand: {
     name: "Satinder Dastagir",
     description:
-      "Bringing fresh, organic groceries straight from local farms to your doorstep. Nourish your home with Earth's finest.",
+      "Your simple, reliable store for everyday household essentials — delivered when you need them.",
     socials: [
       { icon: SiFacebook, link: "#" },
       { icon: SiX, link: "#" },
@@ -268,27 +260,6 @@ export const dummyProducts = [
     id: "69c22613ae75a98c7cd13b30",
   },
   {
-    _id: "69c22613ae75a98c7cd13b23",
-    name: "Carrot 500g",
-    description:
-      "Sweet and crunchy, Good for eyesight, Ideal for juices and salads",
-    price: 44,
-    originalPrice: 50,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/ceqgisupuizyste9aifg.png",
-    category: "fruits-vegetables",
-    unit: "500g",
-    stock: 100,
-    isOrganic: true,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 12,
-    id: "69c22613ae75a98c7cd13b23",
-  },
-  {
     _id: "69c22613ae75a98c7cd13b2f",
     name: "Coca-Cola 1.5L",
     description: "Perfect for parties and gatherings, Best served chilled",
@@ -349,27 +320,6 @@ export const dummyProducts = [
     id: "69c22613ae75a98c7cd13b2d",
   },
   {
-    _id: "69c22613ae75a98c7cd13b28",
-    name: "Banana 1 kg",
-    description:
-      "Sweet and ripe, High in potassium, Great for smoothies and snacking",
-    price: 45,
-    originalPrice: 50,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/dsnmko6gqtyw31okby80.png",
-    category: "fruits-vegetables",
-    unit: "1kg",
-    stock: 100,
-    isOrganic: false,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 10,
-    id: "69c22613ae75a98c7cd13b28",
-  },
-  {
     _id: "69c22613ae75a98c7cd13b33",
     name: "Basmati Rice 5kg",
     description: "Long grain and aromatic, Perfect for biryani",
@@ -388,26 +338,6 @@ export const dummyProducts = [
     updatedAt: "2026-03-24T05:50:11.117Z",
     discount: 5,
     id: "69c22613ae75a98c7cd13b33",
-  },
-  {
-    _id: "69c22613ae75a98c7cd13b25",
-    name: "Onion 500g",
-    description: "Fresh and pungent, Perfect for cooking, A kitchen staple",
-    price: 45,
-    originalPrice: 50,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/wnvtwlm2tphqburhsmyc.png",
-    category: "fruits-vegetables",
-    unit: "500g",
-    stock: 100,
-    isOrganic: false,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 10,
-    id: "69c22613ae75a98c7cd13b25",
   },
   {
     _id: "69c22613ae75a98c7cd13b31",
@@ -430,47 +360,6 @@ export const dummyProducts = [
     id: "69c22613ae75a98c7cd13b31",
   },
   {
-    _id: "69c22613ae75a98c7cd13b24",
-    name: "Spinach 500g",
-    description: "Rich in iron, High in vitamins, Perfect for soups and salads",
-    price: 15,
-    originalPrice: 18,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/bhrtl76sscvmeiq4kchm.png",
-    category: "fruits-vegetables",
-    unit: "500g",
-    stock: 100,
-    isOrganic: true,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 17,
-    id: "69c22613ae75a98c7cd13b24",
-  },
-  {
-    _id: "69c22613ae75a98c7cd13b27",
-    name: "Orange 1 kg",
-    description:
-      "Juicy and sweet, Rich in Vitamin C, Perfect for juices and salads",
-    price: 75,
-    originalPrice: 80,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/r1wxfortw5h12g7egx7k.png",
-    category: "fruits-vegetables",
-    unit: "1kg",
-    stock: 100,
-    isOrganic: false,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 6,
-    id: "69c22613ae75a98c7cd13b27",
-  },
-  {
     _id: "69c22613ae75a98c7cd13b34",
     name: "Wheat Flour 5kg",
     description: "Soft and fluffy rotis, Rich in nutrients",
@@ -489,27 +378,6 @@ export const dummyProducts = [
     updatedAt: "2026-03-24T05:50:11.117Z",
     discount: 8,
     id: "69c22613ae75a98c7cd13b34",
-  },
-  {
-    _id: "69c22613ae75a98c7cd13b2a",
-    name: "Grapes 500g",
-    description:
-      "Fresh and juicy, Rich in antioxidants, Perfect for snacking and fruit salads",
-    price: 65,
-    originalPrice: 70,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/jsmb7caaokhnyci2coga.png",
-    category: "fruits-vegetables",
-    unit: "500g",
-    stock: 100,
-    isOrganic: false,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 7,
-    id: "69c22613ae75a98c7cd13b2a",
   },
   {
     _id: "69c22613ae75a98c7cd13b32",
@@ -553,69 +421,6 @@ export const dummyProducts = [
     id: "69c22613ae75a98c7cd13b2c",
   },
   {
-    _id: "69c22613ae75a98c7cd13b29",
-    name: "Mango 1 kg",
-    description:
-      "Sweet and flavorful, Perfect for smoothies and desserts, Rich in Vitamin A",
-    price: 140,
-    originalPrice: 150,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/nb1mpxuo4fdcik6ey5yj.png",
-    category: "fruits-vegetables",
-    unit: "1kg",
-    stock: 100,
-    isOrganic: false,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 7,
-    id: "69c22613ae75a98c7cd13b29",
-  },
-  {
-    _id: "69c22613ae75a98c7cd13b22",
-    name: "Tomato 1 kg",
-    description:
-      "Juicy and ripe, Rich in Vitamin C, Perfect for salads and sauces, Farm fresh quality",
-    price: 28,
-    originalPrice: 30,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/kdbfytxisrjymgy0ubhk.png",
-    category: "fruits-vegetables",
-    unit: "1kg",
-    stock: 100,
-    isOrganic: true,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 7,
-    id: "69c22613ae75a98c7cd13b22",
-  },
-  {
-    _id: "69c22613ae75a98c7cd13b21",
-    name: "Potato 500g",
-    description:
-      "Fresh and organic, Rich in carbohydrates, Ideal for curries and fries",
-    price: 35,
-    originalPrice: 40,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/tzibj2ntsnbn4e0u5kwv.png",
-    category: "fruits-vegetables",
-    unit: "500g",
-    stock: 100,
-    isOrganic: true,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 13,
-    id: "69c22613ae75a98c7cd13b21",
-  },
-  {
     _id: "69c22613ae75a98c7cd13b2e",
     name: "Cheese 200g",
     description:
@@ -656,32 +461,12 @@ export const dummyProducts = [
     discount: 8,
     id: "69c22613ae75a98c7cd13b2b",
   },
-  {
-    _id: "69c22613ae75a98c7cd13b26",
-    name: "Apple 1 kg",
-    description: "Boosts immunity, Rich in fiber",
-    price: 90,
-    originalPrice: 100,
-    image:
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/greencart/pjt1y6xdo46tluemhf0o.png",
-    category: "fruits-vegetables",
-    unit: "1kg",
-    stock: 100,
-    isOrganic: false,
-    rating: 4.5,
-    reviewCount: 12,
-    __v: 0,
-    createdAt: "2026-03-24T05:50:11.117Z",
-    updatedAt: "2026-03-24T05:50:11.117Z",
-    discount: 10,
-    id: "69c22613ae75a98c7cd13b26",
-  },
 ];
 
 export const dummyAdminDashboardData = {
   totalOrders: 1,
   totalUsers: 3,
-  totalProducts: 27,
+  totalProducts: 17,
   outOfStock: 0,
   totalPartners: 2,
   recentOrders: [

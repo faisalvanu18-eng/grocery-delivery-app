@@ -5,7 +5,7 @@ import { footerData } from "../assets/assets";
 
 const Footer = () => {
   return (
-    <footer className="bg-app-green text-white mt-16">
+    <footer className="hidden bg-app-green text-white mt-16">
       <div className="page-shell py-14">
         {/* - top -  */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

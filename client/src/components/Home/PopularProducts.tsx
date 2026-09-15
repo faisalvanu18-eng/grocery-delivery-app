@@ -27,10 +27,10 @@ const PopularProducts = () => {
       <div>
         <div className="flex items-center justify-between mb-8">
           <div>
-            <p className="section-kicker mb-2">Chosen for you</p>
-            <h2 className="section-title">Popular right now</h2>
+            <p className="section-kicker mb-2">Picked for your home</p>
+            <h2 className="section-title">Popular daily essentials</h2>
             <p className="text-sm text-app-text-light mt-1">
-              Top-rated products this season
+              The household staples customers come back for
             </p>
           </div>
           <Link
