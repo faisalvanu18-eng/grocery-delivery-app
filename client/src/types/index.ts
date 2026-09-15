@@ -28,6 +28,15 @@ export interface Category {
   image: string;
 }
 
+export interface AdminCategory {
+  id: string;
+  name: string;
+  slug: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Product {
   id: string;
   name: string;

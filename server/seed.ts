@@ -252,6 +252,27 @@ const seedDB = async () => {
     await prisma.product.createMany({ data: products });
     console.log(`Created ${products.length} products`);
 
+    // Seed base categories (idempotent via upsert on unique slug)
+    const categories = [
+      { slug: "personal-care", name: "Personal Care" },
+      { slug: "pantry-staples", name: "Pantry Staples" },
+      { slug: "bakery", name: "Bakery" },
+      { slug: "beverages", name: "Beverages" },
+      { slug: "snacks", name: "Snacks" },
+      { slug: "frozen-foods", name: "Frozen Foods" },
+      { slug: "baby-care", name: "Baby Care" },
+      { slug: "dairy-eggs", name: "Dairy & Eggs" },
+    ];
+
+    for (const c of categories) {
+      await prisma.category.upsert({
+        where: { slug: c.slug },
+        update: { name: c.name },
+        create: { slug: c.slug, name: c.name },
+      });
+    }
+    console.log(`Seeded ${categories.length} categories`);
+
     console.log("Seed completed successfully!");
     process.exit(0);
   } catch (error) {
