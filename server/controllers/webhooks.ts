@@ -3,8 +3,18 @@ import Stripe from "stripe";
 import { prisma } from "../config/prisma.js";
 import { inngest } from "../inngest/index.js";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+// Lazily construct the Stripe client so the server can start without a
+// STRIPE_SECRET_KEY configured (e.g. local development). The client is only
+// needed when a webhook is actually received.
+let stripeClient: Stripe | null = null;
+const getStripe = (): Stripe => {
+    if (!stripeClient) {
+        stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+    }
+    return stripeClient;
+};
 
 export const stripeWebhook = async (request: Request, response: Response) => {
     let event;
@@ -12,9 +22,10 @@ export const stripeWebhook = async (request: Request, response: Response) => {
         // Get the signature sent by Stripe
         const signature = request.headers["stripe-signature"];
         try {
-            event = stripe.webhooks.constructEvent(request.body, signature as string, endpointSecret);
+            event = getStripe().webhooks.constructEvent(request.body, signature as string, endpointSecret);
         } catch (err) {
-            console.log(`⚠️ Webhook signature verification failed.`, err.message);
+            const message = err instanceof Error ? err.message : String(err);
+            console.log(`⚠️ Webhook signature verification failed.`, message);
             return response.sendStatus(400);
         }
 
@@ -25,7 +36,7 @@ export const stripeWebhook = async (request: Request, response: Response) => {
                 const paymentIntentId = paymentIntent.id;
 
                 // Getting Session Metadata
-                const session = await stripe.checkout.sessions.list({
+                const session = await getStripe().checkout.sessions.list({
                     payment_intent: paymentIntentId,
                 });
                 const { orderId } = session.data[0].metadata as any;
@@ -62,7 +73,7 @@ export const stripeWebhook = async (request: Request, response: Response) => {
                 const paymentIntentFailureId = paymentIntentFailure.id;
 
                 // Getting Session Metadata
-                const sessionFailure = await stripe.checkout.sessions.list({
+                const sessionFailure = await getStripe().checkout.sessions.list({
                     payment_intent: paymentIntentFailureId,
                 });
 
