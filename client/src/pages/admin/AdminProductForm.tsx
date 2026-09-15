@@ -15,6 +15,8 @@ export default function AdminProductForm() {
   const [loading, setLoading] = useState(isEdit);
   const [saving, setSaving] = useState(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [addingCategory, setAddingCategory] = useState(false);
+  const [customCategory, setCustomCategory] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -34,6 +36,13 @@ export default function AdminProductForm() {
         if (isEdit) {
           const { data: prodData } = await api.get(`/products/${id}`);
           const p = prodData.product;
+          const isKnownCategory = categoriesData.some(
+            (c) => c.slug === p.category
+          );
+          if (!isKnownCategory && p.category) {
+            setAddingCategory(true);
+            setCustomCategory(p.category);
+          }
           setFormData({
             name: p.name,
             description: p.description,
@@ -74,8 +83,31 @@ export default function AdminProductForm() {
         return;
       }
 
+      let finalCategory = formData.category;
+      if (addingCategory) {
+        const trimmed = customCategory.trim();
+        if (!trimmed) {
+          toast.error("Please enter a category name");
+          setSaving(false);
+          return;
+        }
+        // Slugify: lowercase, spaces/underscores to hyphens, strip invalid chars
+        finalCategory = trimmed
+          .toLowerCase()
+          .replace(/[\s_]+/g, "-")
+          .replace(/[^a-z0-9-]/g, "")
+          .replace(/-+/g, "-")
+          .replace(/^-|-$/g, "");
+        if (!finalCategory) {
+          toast.error("Please enter a valid category name");
+          setSaving(false);
+          return;
+        }
+      }
+
       const payload = {
         ...formData,
+        category: finalCategory,
         image: finalImageUrl,
         price: Number(formData.price),
         originalPrice: formData.originalPrice
@@ -136,21 +168,51 @@ export default function AdminProductForm() {
                 <label className="block text-sm font-medium text-zinc-700 mb-2">
                   Category
                 </label>
-                <select
-                  required
-                  value={formData.category}
-                  onChange={(e) =>
-                    setFormData({ ...formData, category: e.target.value })
-                  }
-                  className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 focus:border-app-green focus:ring-1 focus:ring-app-green outline-none transition-all bg-white"
-                >
-                  <option value="">Select a category</option>
-                  {categoriesData.map((c) => (
-                    <option key={c.slug} value={c.slug}>
-                      {c.name}
-                    </option>
-                  ))}
-                </select>
+                {addingCategory ? (
+                  <div className="flex items-center gap-2">
+                    <input
+                      required
+                      type="text"
+                      autoFocus
+                      placeholder="Enter new category name"
+                      value={customCategory}
+                      onChange={(e) => setCustomCategory(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 focus:border-app-green focus:ring-1 focus:ring-app-green outline-none transition-all"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setAddingCategory(false);
+                        setCustomCategory("");
+                      }}
+                      className="px-3 py-2.5 text-sm font-medium text-zinc-500 bg-zinc-100 hover:bg-zinc-200 rounded-lg transition-colors shrink-0"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                ) : (
+                  <select
+                    required
+                    value={formData.category}
+                    onChange={(e) => {
+                      if (e.target.value === "__add_new__") {
+                        setAddingCategory(true);
+                        setFormData({ ...formData, category: "" });
+                      } else {
+                        setFormData({ ...formData, category: e.target.value });
+                      }
+                    }}
+                    className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 focus:border-app-green focus:ring-1 focus:ring-app-green outline-none transition-all bg-white"
+                  >
+                    <option value="">Select a category</option>
+                    {categoriesData.map((c) => (
+                      <option key={c.slug} value={c.slug}>
+                        {c.name}
+                      </option>
+                    ))}
+                    <option value="__add_new__">+ Add new category</option>
+                  </select>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium text-zinc-700 mb-2">
