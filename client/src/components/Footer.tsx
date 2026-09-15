@@ -5,15 +5,15 @@ import { footerData } from "../assets/assets";
 
 const Footer = () => {
   return (
-    <footer className="bg-app-green text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-app-green text-white mt-16">
+      <div className="page-shell py-14">
         {/* - top -  */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <DastagirLogo className="size-7 text-white" />
-              <span className="text-xl font-semibold">
+              <span className="text-xl font-bold tracking-tight">
                 {footerData.brand.name}
               </span>
             </Link>
@@ -27,7 +27,7 @@ const Footer = () => {
                 <a
                   key={i}
                   href={social.link}
-                  className="size-9 rounded-lg bg-white/10 flex-center hover:bg-white/2"
+                  className="size-9 rounded-full bg-white/10 flex-center hover:bg-white/20"
                 >
                   <social.icon className="size-4" />
                 </a>

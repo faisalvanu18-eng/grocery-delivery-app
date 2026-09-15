@@ -2,21 +2,23 @@ import { appPromoBannerData, assets } from "../../assets/assets";
 
 const AppPromoBanner = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 my-14 bg-green-950 rounded-2xl">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 xl:px-10">
+    <section className="relative overflow-hidden py-12 sm:py-16 px-6 sm:px-12 my-10 bg-app-green rounded-[2rem]">
+      <div className="absolute -right-24 -top-24 size-72 bg-orange-300/15 rounded-full blur-3xl" />
+      <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left side content */}
         <div className="text-center md:text-left">
-          <h2 className="font-serif text-3xl sm:text-4xl text-white mb-3">
+          <p className="text-orange-300 text-xs font-extrabold uppercase tracking-[0.15em] mb-3">Dastagir delivery</p>
+          <h2 className="font-serif text-4xl sm:text-5xl text-white mb-3">
             {appPromoBannerData.title}
           </h2>
           <p className="text-white/70 mb-6 max-w-md">
             {appPromoBannerData.description}
           </p>
           <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-            <button className="px-6 py-3 bg-white text-green-950 font-semibold rounded-xl hover:bg-orange-100">
+            <button className="px-6 py-3 bg-white text-app-green font-bold rounded-full hover:bg-orange-100">
               App Store
             </button>
-            <button className="px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors border border-white/20">
+            <button className="px-6 py-3 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-colors border border-white/20">
               Google Play
             </button>
           </div>
@@ -26,7 +28,7 @@ const AppPromoBanner = () => {
         <img
           src={assets.delivery_truck}
           alt="Delivery Truck"
-          className="max-w-60 sm:max-w-120 xl:pr-10"
+          className="max-w-60 sm:max-w-90 xl:pr-6 drop-shadow-2xl"
         />
       </div>
     </section>

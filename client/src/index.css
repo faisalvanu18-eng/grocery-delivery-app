@@ -2,13 +2,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-app-green: #1b3022;
-  --color-app-green-light: #2d4a35;
-  --color-app-green-lighter: #3d6b4a;
-  --color-app-orange: #f97316;
-  --color-app-orange-dark: #ea580c;
-  --color-app-cream: #faf7f2;
-  --color-app-cream-dark: #f0ebe3;
+  --color-app-green: #143d2a;
+  --color-app-green-light: #236044;
+  --color-app-green-lighter: #4f8c67;
+  --color-app-orange: #f15a24;
+  --color-app-orange-dark: #cf4314;
+  --color-app-cream: #fffdf8;
+  --color-app-cream-dark: #f4eee3;
   --color-app-text: #1b3022;
   --color-app-text-light: #6b7280;
   --color-app-border: #e5e7eb;
@@ -24,6 +24,7 @@ body {
   font-family: var(--font-sans);
   color: var(--color-app-text);
   background-color: var(--color-app-cream);
+  background-image: radial-gradient(circle at 90% -5%, rgba(248, 190, 82, 0.14), transparent 22rem);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -53,6 +54,14 @@ button {
   transition: all 0.2s ease;
   cursor: pointer;
 }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(241, 90, 36, 0.3);
+  outline-offset: 2px;
+}
 input:focus {
   outline: none;
 }
@@ -64,6 +73,64 @@ input:focus {
 .dropdown-link {
   @apply flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-500 hover:bg-orange-50/80 hover:text-zinc-900 transition-colors;
 }
+
+.page-shell {
+  width: min(100% - 2rem, 1280px);
+  margin-inline: auto;
+}
+
+.surface-card {
+  border: 1px solid rgba(20, 61, 42, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 45px rgba(20, 61, 42, 0.07);
+}
+
+.section-kicker {
+  color: var(--color-app-orange-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  color: var(--color-app-green);
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  background: var(--color-app-orange);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.8rem 1.3rem;
+  box-shadow: 0 10px 24px rgba(241, 90, 36, 0.24);
+}
+
+.button-primary:hover { background: var(--color-app-orange-dark); transform: translateY(-1px); }
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(20, 61, 42, 0.14);
+  border-radius: 999px;
+  background: white;
+  color: var(--color-app-green);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.8rem 1.3rem;
+}
+
+.button-secondary:hover { border-color: var(--color-app-green); background: var(--color-app-cream); }
 
 /* Animations */
 @keyframes fadeIn {

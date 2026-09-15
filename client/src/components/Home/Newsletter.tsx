@@ -2,13 +2,14 @@ import { MailIcon } from "lucide-react";
 
 const Newsletter = () => {
   return (
-    <section className="bg-white py-18 px-4 sm:px-6 lg:px-8 rounded-3xl mx-auto  shadow-xs mt-32 mb-20">
+    <section className="surface-card py-14 sm:py-18 px-5 sm:px-8 rounded-[2rem] mx-auto mt-14 mb-8">
       <div className="max-w-2xl mx-auto text-center">
-        <div className="size-16 bg-white rounded-xl flex-center mx-auto mb-6 shadow">
-          <MailIcon className="size-8 text-app-green" strokeWidth={1.5} />
+        <div className="size-14 bg-orange-50 rounded-2xl flex-center mx-auto mb-6">
+          <MailIcon className="size-6 text-app-orange" strokeWidth={1.8} />
         </div>
-        <h2 className="text-3xl font-semibold text-app-green mb-4">
-          Subscribe to our Newsletter
+        <p className="section-kicker mb-2">A little freshness</p>
+        <h2 className="section-title mb-4">
+          Good food, in your inbox.
         </h2>
         <p className="text-app-text-light mb-8 text-base">
           Get weekly updates on fresh produce, seasonal offers, and exclusive
@@ -23,12 +24,12 @@ const Newsletter = () => {
             type="email"
             placeholder="Enter your email address"
             required
-            className="flex-1 px-5 py-3.5 rounded-xl border border-app-border focus:border-app-green focus:ring bg-white text-sm transition-all"
+            className="flex-1 px-5 py-3.5 rounded-full border border-app-green/15 focus:border-app-green bg-white text-sm transition-all"
           />
 
           <button
             type="submit"
-            className="px-8 py-3.5 bg-app-green text-white font-semibold rounded-xl hover:bg-app-green-light transition-colors shadow-sm whitespace-nowrap active:scale-[0.98]"
+            className="px-8 py-3.5 bg-app-green text-white font-bold rounded-full hover:bg-app-green-light transition-colors shadow-sm whitespace-nowrap active:scale-[0.98]"
           >
             Subscribe
           </button>

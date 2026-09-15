@@ -23,25 +23,26 @@ const PopularProducts = () => {
   }, []);
 
   return (
-    <section className="pb-16">
-      <div className="max-w-7xl mx-auto ">
+    <section className="pb-18">
+      <div>
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-semibold">Popular Products</h2>
+            <p className="section-kicker mb-2">Chosen for you</p>
+            <h2 className="section-title">Popular right now</h2>
             <p className="text-sm text-app-text-light mt-1">
               Top-rated products this season
             </p>
           </div>
           <Link
             to="/products"
-            className="text-sm font-semibold text-app-orange hover:text-app-orange-dark flex items-center gap-1 transition-colors"
+            className="button-secondary hidden sm:inline-flex text-sm py-2.5"
           >
             View All <ArrowRightIcon className="size-4" />
           </Link>
         </div>
 
         {products.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 xl:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5">
             {products.slice(0, 10).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

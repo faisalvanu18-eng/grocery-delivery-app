@@ -123,7 +123,7 @@ const Checkout = () => {
 
   return (
     <div className="min-h-screen bg-app-cream">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
@@ -132,15 +132,16 @@ const Checkout = () => {
           <ArrowLeft className="size-4" /> Back
         </button>
 
-        <h1 className="text-2xl font-semibold text-app-green mb-8">Checkout</h1>
+        <p className="section-kicker mb-2">One last step</p>
+        <h1 className="section-title mb-8">Checkout</h1>
 
         {/* Steps */}
-        <div className="flex items-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center gap-2 mb-8 surface-card p-2 rounded-2xl">
           {steps.map((s, i) => (
             <div key={s.key} className="flex items-center gap-2">
               <button
                 onClick={() => setStep(s.key)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${step === s.key ? "bg-app-green text-white" : "bg-white text-app-text-light"}`}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${step === s.key ? "bg-app-green text-white shadow-md" : "bg-white text-app-text-light hover:bg-app-cream"}`}
               >
                 <s.icon className="size-4" /> {s.label}
                 {i < steps.length - 1 && (
@@ -183,8 +184,8 @@ const Checkout = () => {
           </div>
 
           {/* Order Summary Sidebar */}
-          <div className="bg-white rounded-2xl p-5 h-fit sticky top-24">
-            <h3 className="text-sm font-semibold text-app-green mb-4">
+          <div className="surface-card rounded-2xl p-6 h-fit sticky top-24">
+            <h3 className="text-lg font-bold text-app-green mb-5">
               Order Summary
             </h3>
 

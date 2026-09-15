@@ -72,7 +72,7 @@ const ProductPage = () => {
   const categoryLabel = product.category.replace(/-/g, " ");
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="page-shell py-8 sm:py-10">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-app-text-light mb-6">
           <Link to="/" className="hover:text-app-green transition-colors">
@@ -107,14 +107,14 @@ const ProductPage = () => {
         </button>
 
         {/* Product Details Section */}
-        <div className="bg-white/50 rounded-2xl overflow-hidden">
+        <div className="surface-card rounded-[2rem] overflow-hidden">
           <div className="grid md:grid-cols-2 gap-0">
             {/* left side - Image */}
-            <div className="relative flex-center p-8 md:p-12 min-h-[320px] md:min-h-[480px]">
+            <div className="relative flex-center p-8 md:p-12 min-h-[320px] md:min-h-[480px] bg-gradient-to-br from-orange-50 via-white to-emerald-50">
               <img
                 src={product.image}
                 alt={product.name}
-                className="max-h-[360px] w-auto object-contain"
+                className="max-h-[390px] w-auto object-contain drop-shadow-2xl"
               />
 
               <div className="absolute top-5 left-5 flex flex-wrap gap-1.5">
@@ -134,12 +134,12 @@ const ProductPage = () => {
             {/* Badges */}
 
             {/* right side - Details */}
-            <div className="p-6 md:p-10 flex flex-col justify-center">
-              <span className="text-xs font-medium text-app-text-light tracking-wider mb-2 capitalize">
+            <div className="p-7 md:p-12 flex flex-col justify-center">
+              <span className="text-xs font-extrabold text-app-orange tracking-[0.13em] mb-3 uppercase capitalize">
                 {categoryLabel}
               </span>
 
-              <h1 className="text-2xl md:text-3xl font-semibold text-app-green mb-3">
+              <h1 className="font-serif text-4xl md:text-5xl leading-tight text-app-green mb-4">
                 {product.name}
               </h1>
 
@@ -165,7 +165,7 @@ const ProductPage = () => {
 
               {/* Price */}
               <div className="flex items-baseline gap-3 mb-5">
-                <span className="text-3xl md:text-4xl font-semibold text-app-green">
+                <span className="text-4xl md:text-5xl font-extrabold text-app-green">
                   {currency}
                   {product.price.toFixed(2)}
                 </span>
@@ -200,7 +200,7 @@ const ProductPage = () => {
               {/* Quantity + Add to Cart */}
               <div className="flex items-center gap-3">
                 {/* Quantity */}
-                <div className="flex items-center border border-app-border rounded-xl overflow-hidden">
+                <div className="flex items-center border border-app-green/12 rounded-full overflow-hidden bg-app-cream">
                   <button
                     onClick={handleMinus}
                     className="p-3 hover:bg-app-cream transition-colors"
@@ -225,7 +225,7 @@ const ProductPage = () => {
                     if (!inCart) addToCart(product, localQuantity);
                   }}
                   disabled={product.stock === 0}
-                  className={`flex-1 py-3 font-semibold rounded-xl transition-colors flex-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98] ${inCart ? "bg-app-cream text-app-green border border-app-green" : "bg-app-orange text-white hover:bg-app-orange-dark"}`}
+                  className={`flex-1 py-3.5 font-bold rounded-full transition-colors flex-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98] ${inCart ? "bg-app-cream text-app-green border border-app-green" : "bg-app-orange text-white hover:bg-app-orange-dark shadow-lg shadow-orange-500/20"}`}
                 >
                   <ShoppingCartIcon className="w-4 h-4" />
                   {inCart ? "Added to Cart" : "Add to Cart"}
@@ -258,7 +258,7 @@ const ProductPage = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 xl:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5">
               {relatedProducts.slice(0, 5).map((rp) => (
                 <ProductCard key={rp.id} product={rp} />
               ))}

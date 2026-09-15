@@ -13,18 +13,18 @@ const FilterPanel = ({
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-7">
       {/* Categories */}
       <div>
-        <h3 className="text-sm font-semibold text-app-green mb-3">
+        <h3 className="text-sm font-extrabold text-app-green mb-3">
           Categories
         </h3>
-        <div className="space-y-1.5">
+        <div className="space-y-1">
           {categoriesWithAll.map((cat: any) => (
             <button
               key={cat.slug}
               onClick={() => updateFilter("category", cat.slug)}
-              className={`block w-full text-left px-3 py-2 text-sm rounded-md transition-all ${category === cat.slug ? "bg-app-green text-white" : "text-app-text-light hover:bg-app-cream"}`}
+              className={`block w-full text-left px-3 py-2.5 text-sm font-medium rounded-xl transition-all ${category === cat.slug ? "bg-app-green text-white shadow-sm" : "text-app-text-light hover:bg-app-cream hover:text-app-green"}`}
             >
               {cat.name}
             </button>
@@ -34,7 +34,7 @@ const FilterPanel = ({
 
       {/* Price Range */}
       <div>
-        <h3 className="text-sm font-semibold text-app-green mb-3">
+        <h3 className="text-sm font-extrabold text-app-green mb-3">
           Price Range
         </h3>
         <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ const FilterPanel = ({
             placeholder="Min"
             value={minPrice}
             onChange={(e) => updateFilter("minPrice", e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-white rounded-lg border not-focus:border-app-border"
+            className="w-full px-3 py-2.5 text-sm bg-app-cream rounded-xl border border-app-green/10"
           />
 
           <span className="text-app-text-light">-</span>
@@ -53,7 +53,7 @@ const FilterPanel = ({
             placeholder="Max"
             value={maxPrice}
             onChange={(e) => updateFilter("maxPrice", e.target.value)}
-            className="w-full px-3 py-2 text-sm bg-white rounded-lg border not-focus:border-app-border"
+            className="w-full px-3 py-2.5 text-sm bg-app-cream rounded-xl border border-app-green/10"
           />
         </div>
       </div>

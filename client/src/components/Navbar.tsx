@@ -8,6 +8,7 @@ import {
   SearchIcon,
   ShieldIcon,
   ShoppingCartIcon,
+  SparklesIcon,
   UserIcon,
   XIcon,
 } from "lucide-react";
@@ -40,52 +41,53 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white sticky top-0 z-50 border-b border-app-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 gap-4">
+    <nav className="bg-white/90 backdrop-blur-xl sticky top-0 z-50 border-b border-app-green/8">
+      <div className="page-shell flex items-center justify-between h-[76px] gap-3">
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-2 text-[22px] font-medium shrink-0"
+          className="flex items-center gap-2.5 text-[22px] font-bold tracking-tight shrink-0 text-app-green"
         >
-          <DastagirLogo className="size-7 text-app-green" /> Dastagir
+          <DastagirLogo className="size-9 text-app-green" /> Dastagir
         </Link>
 
-        <div className="w-full flex items-center justify-end gap-4 lg:gap-10">
+        <div className="w-full flex items-center justify-end gap-3 lg:gap-7">
           {/* Nav Links - Desktop */}
-          <div className="hidden md:flex items-center gap-6 text-sm text-zinc-600">
-            <Link to="/">Home</Link>
-            <Link to="/products">Products</Link>
-            <Link to="/deals" className="text-app-orange">
-              Deals
+          <div className="hidden lg:flex items-center gap-5 text-sm font-semibold text-app-text-light">
+            <Link to="/" className="hover:text-app-green">Home</Link>
+            <Link to="/products" className="hover:text-app-green">Shop</Link>
+            <Link to="/deals" className="inline-flex items-center gap-1 text-app-orange hover:text-app-orange-dark">
+              <SparklesIcon className="size-3.5" /> Deals
             </Link>
           </div>
           {/* Search */}
           <form
             onSubmit={handleSearch}
-            className="hidden sm:flex flex-1 max-w-sm text-xs sm:text-sm"
+            className="hidden md:flex flex-1 max-w-md text-xs sm:text-sm"
           >
             <div className="relative w-full">
-              <SearchIcon className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-zinc-500" />
+              <SearchIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-app-green/55" />
               <input
                 type="text"
                 placeholder="Search for groceries..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 p-2 bg-orange-50 rounded-full ring ring-app-orange/15 focus:ring-app-orange/30"
+                className="w-full pl-10 pr-4 py-2.5 bg-app-cream rounded-full border border-app-green/8 focus:border-app-green/30 focus:bg-white"
               />
             </div>
           </form>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             {/* Cart */}
             <button
-              className="relative p-2 rounded-xl"
+              aria-label="Open shopping cart"
+              className="relative size-10 rounded-full bg-app-cream hover:bg-orange-100 flex-center"
               onClick={() => setIsCartOpen(true)}
             >
-              <ShoppingCartIcon className="size-5 text-zinc-900" />
+              <ShoppingCartIcon className="size-4.5 text-app-green" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 size-4 bg-app-orange text-white text-[10px] rounded-full flex-center">
+                <span className="absolute -top-1 -right-1 min-w-4 h-4 px-1 bg-app-orange text-white text-[10px] rounded-full flex-center">
                   {cartCount}
                 </span>
               )}
@@ -95,9 +97,9 @@ const Navbar = () => {
               {user ? (
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="flex items-center gap-2 p-2"
+                  className="flex items-center gap-2 p-1.5 rounded-full hover:bg-app-cream"
                 >
-                  <div className="size-7 rounded-full bg-green-950 text-white flex-center">
+                  <div className="size-8 rounded-full bg-app-green text-white text-xs flex-center">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                   <ChevronDownIcon className="size-3 text-zinc-500" />
@@ -106,7 +108,7 @@ const Navbar = () => {
                 <div className="flex-center gap-2">
                   <Link
                     to="/login"
-                    className="hidden md:flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-green-950 rounded-full hover:bg-green-950-light transition-colors"
+                    className="hidden md:flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-white bg-app-green rounded-full hover:bg-app-green-light shadow-sm"
                   >
                     <UserIcon size={16} /> Sign In
                   </Link>

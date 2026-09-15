@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import type { Product } from "../types";
-import { Plus, Star } from "lucide-react";
+import { Plus, Star, ShoppingBagIcon } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 interface Props {
@@ -15,21 +15,21 @@ const ProductCard = ({ product }: Props) => {
 
   return (
     <div
-      className="bg-white rounded-2xl overflow-hidden shadow hover:shadow-md transition-all duration-300 group animate-fade-in cursor-pointer"
+      className="group relative bg-white rounded-2xl overflow-hidden border border-app-green/8 shadow-[0_7px_20px_rgba(20,61,42,0.05)] hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(20,61,42,0.12)] transition-all duration-300 cursor-pointer"
       onClick={() => navigate(`/products/${product.id}`)}
     >
       {/* Image */}
-      <div className="relative aspect-square overflow-hidden">
+      <div className="relative aspect-[1.05] overflow-hidden bg-gradient-to-br from-orange-50 via-white to-emerald-50">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover p-4 group-hover:p-2 transition-all duration-300"
+          className="w-full h-full object-contain p-5 group-hover:scale-110 transition-transform duration-500"
         />
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
           {product.discount > 0 && (
-            <span className="px-2 py-0.5 text-[10px] font-semibold uppercase bg-app-orange text-white rounded-full">
+            <span className="px-2.5 py-1 text-[10px] font-extrabold uppercase bg-app-orange text-white rounded-full shadow-sm">
               {product.discount}% OFF
             </span>
           )}
@@ -37,16 +37,17 @@ const ProductCard = ({ product }: Props) => {
       </div>
 
       {/* Info */}
-      <div className="p-3.5 text-zinc-700">
-        <h3 className="text-sm leading-snug mb-1.5 line-clamp-2">
+      <div className="p-3.5 sm:p-4 text-zinc-700">
+        <p className="text-[10px] text-app-text-light uppercase tracking-wider font-bold mb-1">{product.unit}</p>
+        <h3 className="text-sm font-bold leading-snug mb-2 line-clamp-2 text-app-green">
           {product.name}
         </h3>
 
         {/* Rating */}
         {product.rating > 0 && (
-          <div className="flex items-center gap-1 mb-2">
+          <div className="flex items-center gap-1 mb-3">
             <Star className="size-3 text-app-warning fill-app-warning" />
-            <span className="text-xs font-medium text-app-text">
+            <span className="text-xs font-bold text-app-text">
               {product.rating}
             </span>
             <span className="text-xs text-app-text-light">
@@ -56,17 +57,17 @@ const ProductCard = ({ product }: Props) => {
         )}
 
         {/* Price + Add */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1 truncate">
-            <span className="text-base font-medium">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-baseline gap-1 truncate">
+            <span className="text-lg font-extrabold text-app-green">
               {currency}
               {product.price.toFixed(1)}
             </span>
-            <span className="text-xs text-app-text-light block">
+            <span className="text-[10px] text-app-text-light block">
               /{product.unit}
             </span>
             {product.originalPrice > product.price && (
-              <span className="text-xs text-app-text-light line-through ml-1.5">
+              <span className="hidden sm:inline text-[10px] text-app-text-light line-through ml-1">
                 {currency}
                 {product.originalPrice.toFixed(1)}
               </span>
@@ -78,9 +79,10 @@ const ProductCard = ({ product }: Props) => {
               e.stopPropagation();
               addToCart(product);
             }}
-            className="size-7 rounded-full bg-app-orange text-white flex-center shrink-0 hover:bg-app-orange-dark transition-colors active:scale-95"
+            aria-label={`Add ${product.name} to cart`}
+            className="h-9 px-2.5 rounded-full bg-app-green text-white flex-center gap-1 shrink-0 hover:bg-app-orange transition-colors active:scale-95"
           >
-            <Plus className="size-3.5" />
+            <Plus className="size-3.5" /> <ShoppingBagIcon className="hidden sm:block size-3.5" />
           </button>
         </div>
       </div>

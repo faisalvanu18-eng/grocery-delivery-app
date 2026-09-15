@@ -28,7 +28,7 @@ const SearchResults = () => {
 
   return (
     <div className="min-h-screen bg-app-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="page-shell py-8 sm:py-10">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-app-text-light mb-6">
           <Link to="/" className="hover:text-app-green transition-colors">
@@ -40,8 +40,9 @@ const SearchResults = () => {
 
         {/* Header */}
 
-        <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-app-green mb-1">
+        <div className="mb-8 pb-6 border-b border-app-green/10">
+          <p className="section-kicker mb-2">Search results</p>
+          <h1 className="section-title mb-1">
             Results for "{query}"
           </h1>
           <p className="text-sm text-app-text-light">
@@ -70,7 +71,7 @@ const SearchResults = () => {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

@@ -31,21 +31,21 @@ export default function DeliveryLayout() {
   return (
     <div className="min-h-screen bg-app-cream">
       {/* Top Bar */}
-      <header className="bg-white border-b border-app-border sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <DastagirLogo className="size-7 text-app-green" />
-            <span className="text-lg font-semibold text-app-green">
+      <header className="bg-white/90 backdrop-blur-xl border-b border-app-green/8 sticky top-0 z-40">
+        <div className="page-shell h-[72px] flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <DastagirLogo className="size-9 text-app-green" />
+            <span className="text-lg font-bold text-app-green">
               Dastagir Delivery
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-zinc-600">
+            <span className="text-sm font-bold text-zinc-600">
               {partner.name}
             </span>
             <button
               onClick={handleLogout}
-              className="p-2 text-zinc-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+              className="p-2.5 text-zinc-500 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors"
             >
               <LogOutIcon className="size-4" />
             </button>
@@ -53,7 +53,7 @@ export default function DeliveryLayout() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col lg:flex-row gap-6">
+      <div className="page-shell py-8 flex flex-col lg:flex-row gap-6">
         <main className="flex-1 min-w-0">
           <Outlet />
         </main>

@@ -31,26 +31,27 @@ export default function AdminLayout() {
   }
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="min-h-screen bg-app-cream">
       <div className="max-lg:hidden">
         <Navbar />
       </div>
-      <div className="flex flex-col h-full lg:flex-row gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+      <div className="flex flex-col lg:flex-row gap-6 page-shell py-8 animate-fade-in">
         {/* Admin Sidebar */}
-        <aside className="w-full lg:w-64 shrink-0 h-fit bg-white rounded-2xl p-4 border border-app-border">
-          <div className="pb-4 mb-4 border-b border-app-border">
-            <h2 className="text-lg font-semibold text-app-green flex items-center gap-2 px-2">
-              <ShieldIcon className="size-5 text-green-900" /> Admin Panel
+        <aside className="w-full lg:w-64 shrink-0 h-fit surface-card rounded-2xl p-4 lg:sticky lg:top-24">
+          <div className="pb-4 mb-4 border-b border-app-green/10">
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-app-orange px-2 mb-1">Workspace</p>
+            <h2 className="text-lg font-bold text-app-green flex items-center gap-2 px-2">
+              <ShieldIcon className="size-5 text-app-orange" /> Admin Panel
             </h2>
           </div>
-          <nav className="flex flex-col gap-1.5">
+          <nav className="flex flex-row overflow-x-auto lg:flex-col gap-1.5 no-scrollbar">
             {AdminLinkData.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 end={true}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 p-2.5 rounded-md text-sm transition-colors ${isActive ? "bg-app-green text-white" : "text-app-text-light hover:bg-orange-50 hover:text-zinc-900"}`
+                  `whitespace-nowrap flex items-center gap-3 p-2.5 rounded-xl text-sm font-semibold transition-colors ${isActive ? "bg-app-green text-white shadow-sm" : "text-app-text-light hover:bg-orange-50 hover:text-app-green"}`
                 }
               >
                 <link.icon className="size-4" /> {link.label}
@@ -58,7 +59,7 @@ export default function AdminLayout() {
             ))}
           </nav>
         </aside>
-        <main className="flex-1 overflow-y-auto no-scrollbar pb-20">
+        <main className="flex-1 min-w-0 pb-20">
           <Outlet />
         </main>
       </div>

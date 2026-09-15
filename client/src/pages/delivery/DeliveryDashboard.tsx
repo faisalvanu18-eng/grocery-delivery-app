@@ -162,13 +162,17 @@ export default function DeliveryDashboard() {
 
   return (
     <div className="space-y-6">
+      <div>
+        <p className="section-kicker mb-2">Delivery workspace</p>
+        <h1 className="section-title">Your route, at a glance</h1>
+      </div>
       {/* Tabs + Tracking toggle */}
       <div className="flex items-center gap-2 flex-wrap">
         {(["active", "completed"] as const).map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
-            className={`px-4 py-2 text-sm font-medium rounded-xl transition-colors ${tab === t ? "bg-app-green text-white" : "bg-white text-zinc-600 hover:bg-app-cream border border-app-border"}`}
+            className={`px-4 py-2.5 text-sm font-bold rounded-full transition-colors ${tab === t ? "bg-app-green text-white shadow-sm" : "bg-white text-zinc-600 hover:bg-app-cream border border-app-green/10"}`}
           >
             {t === "active" ? "Active" : "Completed"}
           </button>
@@ -176,7 +180,7 @@ export default function DeliveryDashboard() {
         <div className="ml-auto">
           <button
             onClick={() => setTracking((prev) => !prev)}
-            className={`px-4 py-2 text-sm font-medium rounded-xl transition-colors flex items-center gap-1.5 ${tracking ? "bg-green-600 text-white" : "bg-white text-zinc-600 border border-app-border hover:bg-app-cream"}`}
+            className={`px-4 py-2.5 text-sm font-bold rounded-full transition-colors flex items-center gap-1.5 ${tracking ? "bg-green-600 text-white" : "bg-white text-zinc-600 border border-app-green/10 hover:bg-app-cream"}`}
           >
             <NavigationIcon
               className={`w-3.5 h-3.5 ${tracking ? "animate-pulse" : ""}`}
@@ -190,7 +194,7 @@ export default function DeliveryDashboard() {
       {loading ? (
         <Loading />
       ) : orders.length === 0 ? (
-        <div className="text-center py-16 bg-white rounded-2xl border border-app-border">
+        <div className="text-center py-16 surface-card rounded-2xl">
           <PackageIcon className="size-12 text-app-border mx-auto mb-3" />
           <p className="text-lg font-semibold text-zinc-900 mb-1">
             No {tab} deliveries

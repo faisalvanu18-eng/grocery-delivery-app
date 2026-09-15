@@ -31,7 +31,7 @@ const Products = () => {
       if (category) params.set("category", category);
       if (organic) params.set("organic", organic);
       if (sort) params.set("sort", sort);
-      if (sort) params.set("sort", sort);
+      if (minPrice) params.set("minPrice", minPrice);
       if (maxPrice) params.set("maxPrice", maxPrice);
       params.set("page", String(page));
       params.set("limit", "12");
@@ -70,9 +70,9 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-app-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="page-shell py-8 sm:py-10">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-app-text-light mb-6">
+        <nav className="flex items-center gap-2 text-xs font-semibold text-app-text-light mb-7">
           <Link to="/" className="hover:text-app-green transition-colors">
             <Home className="size-4" />
           </Link>
@@ -85,7 +85,7 @@ const Products = () => {
         <div className="flex gap-8 xl:gap-10">
           {/* Sidebar - Desktop */}
           <aside className="hidden lg:block w-64 shrink-0">
-            <div className="bg-white rounded-2xl p-4 sticky top-24">
+            <div className="surface-card rounded-2xl p-5 sticky top-24">
               <FilterPanel
                 categories={categoriesData}
                 category={category}
@@ -102,21 +102,22 @@ const Products = () => {
           {/* Main Content */}
           <main className="flex-1">
             {/* Header */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-8 pb-6 border-b border-app-green/10">
               <div>
-                <h1 className="text-2xl font-semibold text-app-green">
+                <p className="section-kicker mb-2">The pantry, your way</p>
+                <h1 className="section-title">
                   {activeCategory ? activeCategory.name : "All Products"}
                 </h1>
-                <p className="text-sm text-app-text-light mt-0.5">
+                <p className="text-sm text-app-text-light mt-1.5">
                   {products.length} products found
                 </p>
               </div>
 
-              <div className="flex flex-col lg:items-center gap-3">
+              <div className="flex items-center gap-2">
                 {/* Mobile filter toggle */}
                 <button
                   onClick={() => setMobileFiltersOpen(true)}
-                  className="lg:hidden flex items-center gap-2 px-3 py-2 text-sm bg-white rounded-xl border border-app-border hover:bg-app-cream transition-colors"
+                  className="lg:hidden flex items-center gap-2 px-3.5 py-2.5 text-sm font-bold bg-white rounded-full border border-app-green/10 hover:bg-app-cream transition-colors"
                 >
                   <SlidersHorizontal className="size-4" /> Filters
                 </button>
@@ -126,7 +127,7 @@ const Products = () => {
                   <select
                     value={sort}
                     onChange={(e) => updateFilter("sort", e.target.value)}
-                    className="appearance-none pl-3 pr-8 py-2 text-sm bg-white rounded-xl border border-app-border focus:border-app-green outline-none cursor-pointer"
+                    className="appearance-none pl-4 pr-9 py-2.5 text-sm font-semibold bg-white rounded-full border border-app-green/10 focus:border-app-green outline-none cursor-pointer"
                   >
                     <option value="">Newest</option>
                     <option value="price_asc">Price: Low → High</option>
@@ -158,7 +159,7 @@ const Products = () => {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
                 {products.map(
                   (product) =>
                     product.stock > 0 && (

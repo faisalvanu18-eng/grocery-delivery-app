@@ -24,11 +24,12 @@ const FlashDeals = () => {
   return (
     <div className="min-h-screen bg-app-cream">
       {/* Banner */}
-      <div className="bg-linear-to-r from-app-orange to-app-orange-dark text-white py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative overflow-hidden bg-linear-to-r from-app-orange to-orange-600 text-white py-14">
+        <div className="absolute -left-16 -top-16 size-56 rounded-full bg-yellow-200/20 blur-2xl" />
+        <div className="page-shell relative text-center">
           <div className="flex-center gap-2 mb-3">
             <Zap className="size-6 fill-white" />
-            <h1 className="text-3xl font-semibold">Flash Deals</h1>
+            <h1 className="font-serif text-4xl">Fresh flash deals</h1>
             <Zap className="size-6 fill-white" />
           </div>
           <p className="text-white/80 max-w-md mx-auto">
@@ -38,7 +39,7 @@ const FlashDeals = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="page-shell py-10">
         {loading ? (
           <Loading />
         ) : products.length === 0 ? (
@@ -52,7 +53,7 @@ const FlashDeals = () => {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">
             {products.map(
               (product) =>
                 product.stock > 0 && (
