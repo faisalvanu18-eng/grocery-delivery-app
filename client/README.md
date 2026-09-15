@@ -43,7 +43,7 @@ This frontend provides a complete user experience for:
 The frontend application is designed to simulate a modern grocery delivery platform similar to:
 
 - Blinkit
-- Instacart
+- Dastagir
 - BigBasket
 - Zepto
 - Swiggy Instamart

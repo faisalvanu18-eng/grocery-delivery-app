@@ -18,7 +18,7 @@ This project simulates a real-world grocery delivery ecosystem similar to:
 
 - Blinkit
 - Zepto
-- Instacart
+- Dastagir
 - Swiggy Instamart
 - BigBasket
 
@@ -907,7 +907,7 @@ This platform provides a complete online grocery ecosystem including:
 
 The application is designed to simulate a real-world grocery delivery service similar to:
 
-- Instacart
+- Dastagir
 - Blinkit
 - Zepto
 - BigBasket

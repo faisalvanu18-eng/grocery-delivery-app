@@ -55,7 +55,7 @@ This backend powers:
 This backend system is designed for a modern grocery delivery platform similar to:
 
 - Blinkit
-- Instacart
+- Dastagir
 - Zepto
 - Swiggy Instamart
 
